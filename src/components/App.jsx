@@ -4,7 +4,6 @@ export const App = () => {
   return (
     <div className={css.app}>
       <Feedback/>
-    
-    </div>
+     </div>
   );
 };
