@@ -23,9 +23,11 @@ margin-bottom: 20px;
   height: 30px;
   background: #617878;
     color: aliceblue;
+    
 }
 .feedbackButton:hover{
   background: #63a8d9;
+  cursor: pointer;
 }
 
 .statisticsList {
