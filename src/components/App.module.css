@@ -1,6 +1,5 @@
 .app{
-  height: 100vh; 
-  display: flex; 
-  justify-content: center;
-  /* font-size: 30px; */
-  color: #010101 }
+  margin: 0 auto;
+  height: 100vh;
+  width: fit-content;
+ }
