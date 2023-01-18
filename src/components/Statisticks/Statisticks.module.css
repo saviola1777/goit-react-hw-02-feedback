@@ -1,8 +1,13 @@
-css.statisticksList{
-  color: blueviolet;
+.statisticksList{
+  background: repeating-linear-gradient(45deg, #ffcece, transparent 100px);
+  border-radius: 15px;
+  padding: 15px;
 }
 
 .statisticksItem{
   font-size: 20px;
+  color: #4f4e50;
+  font-weight: 700;
+  line-height: 30px;
 }
 

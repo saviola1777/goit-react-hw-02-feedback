@@ -1,0 +1,8 @@
+.cointeiner{
+  margin: 20px auto;
+  width: fit-content;
+  height: auto;
+  padding: 20px;
+  background: linear-gradient(45deg, #739771 0%, #aad4ef 50%, #b0fff7 100%);
+  border-radius: 20px;
+}

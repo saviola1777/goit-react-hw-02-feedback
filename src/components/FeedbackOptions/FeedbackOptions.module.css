@@ -1,0 +1,13 @@
+.button {
+  border-radius: 30%;
+    color: #e1ecff;
+    border-color: black;
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(45deg, black, transparent);
+    margin: 10px 0;
+}
+.buttonTable{
+  display: flex;
+  justify-content: space-evenly;
+}

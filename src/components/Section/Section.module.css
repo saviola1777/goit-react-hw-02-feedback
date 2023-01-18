@@ -1,3 +1,7 @@
 .titels{
-  color: aqua;
+  background: #e8ffff;
+    margin: 10px;
+    text-align: center;
+    border-radius: 20px;
+    color: #444444;
 }

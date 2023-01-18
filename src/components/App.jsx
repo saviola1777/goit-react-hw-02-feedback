@@ -1,7 +1,10 @@
 import React from 'react';
 import Statistics from 'components/Statisticks/Statistics';
 import Section from 'components/Section/Section';
-import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions'
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
+import Notification from 'components/Notification/Notification';
+import Cointeiner from 'components/Cointeiner/Cointeiner';
+
 class App extends React.Component{
 
 state={
@@ -9,35 +12,47 @@ state={
   neutral: 0,
   bad: 0,
 }
-options = ['Good', 'Neutral', 'Bad'];
 countTotalFeedback() {
   return this.state.good + this.state.neutral + this.state.bad;
 }
 countPositiveFeedbackPercentage() {
   return Math.round((this.state.good * 100) / this.countTotalFeedback());
 }
-onLeaveFeedback=()=>{
-this.setState((stateValue)=>{
-  return{
-good:stateValue.good+1
-  }})}
+options = ['Good', 'Neutral', 'Bad'];
+onLeaveFeedback = e => {
+  switch (e) {
+    case 'Good':
+      this.setState({ good: this.state.good + 1 });
+      break;
+    case 'Neutral':
+      this.setState({ neutral: this.state.neutral + 1 });
+      break;
+    case 'Bad':
+      this.setState({ bad: this.state.bad + 1 });
+      break;
+    default:
+      return;
+  }
+};
 
 render(){
   return (
-    <div>
+    <Cointeiner>
     <Section title="Please leave feedback">
     <FeedbackOptions options={this.options} onLeaveFeedback={this.onLeaveFeedback}/>
     </Section>
     <Section title="Statistick">
+      {this.countTotalFeedback()?(
     <Statistics
     good={this.state.good}
     neutral={this.state.neutral}
     bad={this.state.bad}
     total={this.countTotalFeedback()}
     positivePercentage={this.countPositiveFeedbackPercentage()}
-   />
+   />) :(
+   <Notification message="There is no feedback"/> ) }
    </Section>
-   </div>
+   </Cointeiner>
     )}
   }
   export default App
@@ -46,4 +61,4 @@ render(){
 // в цьому класі є рендер цього класу render ()
 // this - це силка на наш клас App дуже важливо коли ми створюєм клас в реакт компонент то this дає доступ до всьог тобто this.state===доступ до обекта state , this.option поверне масив обєктів і так далі тобто в цьому класі щоб взяти якісь дані все потрібно робити через this
 //Об'єкт-стану state – це властивість класу, яка не повинна безпосередньо змінюватися розробником. Це обовязково обєкт 
-// щоб обновити state можна тільки методом this.setState але змінить не динамічно тобто нприклад якшо в state{good:2}  а ми зробили метод що при кліку на якусь кнопку воно повино збільшуватися на 1  onLeaveFeedback=event=>{ this.setState({good:+1})} то воно перезипише  state{good:3}  але при наступному клікові нічого не зміниться томущо цей метод не запоминає теперішній стан state , щоб змінити динамічно то ми повині повернути фунцкію
+// щоб обновити state можна тільки методом this.setState але змінить не динамічно тобто нприклад якшо в state{good:2}  а ми зробили метод що при кліку на якусь кнопку воно повино збільшуватися на 1  onLeaveFeedback=()=>{ this.setState({good:+1})} то воно перезипише  state{good:3}  але при наступному клікові нічого не зміниться томущо цей метод не запоминає теперішній стан state , щоб змінити динамічно то ми повині повернути фунцкію
